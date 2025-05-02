@@ -5,31 +5,34 @@
 #define nl '\n'
 using namespace std;
 /******************* author: @MullaRohan *****************/
+void print(char ch)
+{
+    if (ch == 'a')
+        cout << 'z';
+    else
+        cout << 'a';
+}
 void solve()
 {
     string s;
     cin >> s;
     bool flag = true;
+
     for (int i = 0; i < s.size(); i++)
     {
         if (i && flag)
         {
             if (s[i] == s[i - 1])
             {
-                if (s[i] == 'a')
-                    cout << 'z';
-                else
-                    cout << 'a';
+                print(s[i]);
                 flag = false;
             }
         }
+        cout << s[i];
     }
-    if (!flag)
+    if (flag || s.size() == 1)
     {
-        if (s.back() == 'a')
-            cout << 'z';
-        else
-            cout << 'a';
+        print(s.back());
     }
     cout << nl;
 }
